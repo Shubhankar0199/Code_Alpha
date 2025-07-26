@@ -1,0 +1,127 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #222;
+    }
+    header {
+      background: #f5f5f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #6c63ff;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #f5f5ff, #dcdcff);
+    }
+    .hero h1 {
+      font-size: 36px;
+    }
+    .hero span {
+      color: #6c63ff;
+    }
+    .hero p {
+      margin: 10px auto;
+      max-width: 600px;
+      color: #444;
+    }
+    .hero .btn {
+      margin-top: 20px;
+      padding: 10px 30px;
+      background: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .highlight {
+      color: #6c63ff;
+    }
+    .about p {
+      max-width: 600px;
+      margin: auto;
+      font-weight: 300;
+    }
+    .skills {
+      max-width: 800px;
+      margin: auto;
+    }
+    .skill {
+      text-align: left;
+      margin: 20px 0;
+    }
+    .skill-name {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .bar {
+      background: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 15px;
+      background: #6c63ff;
+    }
+    .projects {
+      background: linear-gradient(135deg, #f7f7ff, #e7e7ff);
+      padding-bottom: 60px;
+    }
+    .project-box {
+      background: white;
+      margin: 20px auto;
+      max-width: 700px;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .contact {
+      background: #f9f9f9;
+      padding: 60px 20px;
+    }
+    .contact .btn {
+      padding: 10px 25px;
+      background: #6c63ff;
+      color: white;
+      border-radius: 25px;
+      margin-top: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      background: #eee;
+      padding: 15px;
+    }

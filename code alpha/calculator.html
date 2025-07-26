@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #eef2ff;
+      color: #111;
+      padding: 20px;
+    }
+    header {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 1px solid #ccc;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    h1 {
+      font-size: 32px;
+      color: #6366f1;
+      margin: 20px 0 10px;
+    }
+    p.subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    .calculator {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin: auto;
+      padding: 20px;
+    }
+    .display {
+      font-size: 28px;
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      font-size: 18px;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .clear { background: #f43f5e; color: white; grid-column: span 2; }
+    .equals { background: #22c55e; color: white; }
+    .operator { background: linear-gradient(to right, #6366f1, #8b5cf6); color: white; }
+    .info { margin-top: 10px; font-size: 12px; color: #888; }
+    .features, .usage {
+      margin-top: 60px;
+      text-align: left;
+    }
+    .features h2, .usage h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+    }
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .usage .steps {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .step-number {
+      background: #6366f1;
+      color: white;
+      font-weight: bold;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .step p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>Desktop</header>
+  <div class="container">
+    <h1>Modern Calculator</h1>
+    <p class="subtitle">A beautiful, feature-rich calculator with keyboard support, real-time calculations, and modern design</p>
+
+    <div class="calculator">
+      <div class="display" id="display">0</div>
+      <div class="buttons">
+        <button class="clear" onclick="clearDisplay()">Clear</button>
+        <button onclick="deleteLast()">⌫</button>
+        <button class="operator" onclick="append('/')">÷</button>
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button class="operator" onclick="append('*')">×</button>
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button class="operator" onclick="append('-')">−</button>
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button class="operator" onclick="append('+')">+</button>
+        <button onclick="append('0')">0</button>
+        <button onclick="append('.')">.</button>
+        <button class="equals" onclick="calculate()">=</button>
+      </div>
+      <div class="info">Use keyboard for input · ESC to clear · Enter for equals</div>
+    </div>
+
+    <div class="features">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>🔢 Full Arithmetic</h3>
+          <p>Complete support for addition, subtraction, multiplication, and division</p>
+        </div>
+        <div class="card">
+          <h3>⌨️ Keyboard Support</h3>
+          <p>Full keyboard navigation with number keys, operators, and shortcuts</p>
+        </div>
+        <div class="card">
+          <h3>✨ Modern Design</h3>
+          <p>Beautiful gradients, animations, and responsive design for all devices</p>
+        </div>
+        <div class="card">
+          <h3>⚡ Real-time Results</h3>
+          <p>Instant calculations with clear display and operation history</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="usage">
+      <h2>How to Use</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <p><strong>Click or Type Numbers</strong><br>Use the on-screen buttons or your keyboard to input numbers</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <p><strong>Select Operations</strong><br>Choose +, −, ×, ÷ operations using buttons or keyboard (* for multiply, / for divide)</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <p><strong>Get Results</strong><br>Press = or Enter to calculate, ESC to clear, Backspace to delete last digit</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    let expression = '';
+
+    function append(char) {
+      if (display.textContent === '0' || display.textContent === 'Error') display.textContent = '';
+      expression += char;
+      display.textContent = expression;
+    }
+
+    function clearDisplay() {
+      expression = '';
+      display.textContent = '0';
+    }
+
+    function deleteLast() {
+      expression = expression.slice(0, -1);
+      display.textContent = expression || '0';
+    }
+
+    function calculate() {
+      try {
+        const result = eval(expression);
+        display.textContent = result;
+        expression = result.toString();
+      } catch (err) {
+        display.textContent = 'Error';
+        expression = '';
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const validKeys = '0123456789+-*/.';
+      if (validKeys.includes(e.key)) append(e.key);
+      if (e.key === 'Enter') calculate();
+      if (e.key === 'Backspace') deleteLast();
+      if (e.key === 'Escape') clearDisplay();
+    });
+  </script>
+</body>
+</html>
